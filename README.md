@@ -42,3 +42,17 @@ This project is a fully functional contact form built with core PHP using PDO fo
      message TEXT NOT NULL,
      created_at TIMESTAMP DEFAULT CURRENT_TIMESTAMP
    );
+
+   // Database config
+$host = 'localhost';
+$db   = 'your_database_name';
+$user = 'your_db_user';
+$pass = 'your_db_password';
+
+// SMTP config
+$smtpHost = 'smtp.example.com';
+$smtpUsername = 'your_email@example.com';
+$smtpPassword = 'your_email_password';
+$smtpPort = 587; // or 465
+$smtpSecure = 'tls'; // or 'ssl'
+$adminEmail = 'admin@example.com'; // recipient email
