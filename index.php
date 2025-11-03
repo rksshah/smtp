@@ -26,7 +26,7 @@ $smtpHost = 'smtp.gmail.com';
 $smtpUsername = 'smtpemail';
 $smtpPassword = 'smtppassword';
 $smtpPort = 587; // or 465 for SSL
-$smtpSecure = 'tls'; // or 'ssl'
+$smtpSecure = 'ssl'; // or 'ssl'
 $adminEmail = 'adminemail';
 
 session_start();
