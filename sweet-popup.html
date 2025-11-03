@@ -1,0 +1,131 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>SweetAlert2 Multiple Popups</title>
+  <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+  <style>
+    body {
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+      background: #fff0f6;
+      display: flex;
+      flex-direction: column;
+      gap: 12px;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+    button {
+      padding: 12px 24px;
+      font-size: 16px;
+      border-radius: 8px;
+      border: none;
+      cursor: pointer;
+      font-weight: 600;
+      color: white;
+      min-width: 160px;
+      transition: background-color 0.3s ease;
+    }
+    .success { background-color: #22c55e; }
+    .success:hover { background-color: #16a34a; }
+    .error { background-color: #ef4444; }
+    .error:hover { background-color: #b91c1c; }
+    .warning { background-color: #facc15; color: black; }
+    .warning:hover { background-color: #ca8a04; }
+    .info { background-color: #3b82f6; }
+    .info:hover { background-color: #1e40af; }
+    .confirm { background-color: #ec4899; }
+    .confirm:hover { background-color: #be185d; }
+  </style>
+</head>
+<body>
+
+  <button class="success" id="btnSuccess">Success Popup</button>
+  <button class="error" id="btnError">Error Popup</button>
+  <button class="warning" id="btnWarning">Warning Popup</button>
+  <button class="info" id="btnInfo">Info Popup</button>
+  <button class="confirm" id="btnConfirm">Confirm Popup</button>
+
+  <script>
+    document.getElementById('btnSuccess').addEventListener('click', () => {
+      Swal.fire({
+        icon: 'success',
+        title: 'Success!',
+        text: 'This is a successful operation.',
+        confirmButtonColor: '#22c55e',
+        background: '#ecfdf5',
+        customClass: { popup: 'swal2-popup-rounded' }
+      });
+    });
+
+    document.getElementById('btnError').addEventListener('click', () => {
+      Swal.fire({
+        icon: 'error',
+        title: 'Oops...',
+        text: 'Something went wrong!',
+        confirmButtonColor: '#ef4444',
+        background: '#fef2f2',
+        customClass: { popup: 'swal2-popup-rounded' }
+      });
+    });
+
+    document.getElementById('btnWarning').addEventListener('click', () => {
+      Swal.fire({
+        icon: 'warning',
+        title: 'Warning!',
+        text: 'Be careful with this action.',
+        confirmButtonColor: '#facc15',
+        background: '#fffbeb',
+        customClass: { popup: 'swal2-popup-rounded' }
+      });
+    });
+
+    document.getElementById('btnInfo').addEventListener('click', () => {
+      Swal.fire({
+        icon: 'info',
+        title: 'Information',
+        text: 'Here is some useful info.',
+        confirmButtonColor: '#3b82f6',
+        background: '#eff6ff',
+        customClass: { popup: 'swal2-popup-rounded' }
+      });
+    });
+
+    document.getElementById('btnConfirm').addEventListener('click', () => {
+      Swal.fire({
+        title: 'Are you sure?',
+        text: "You won't be able to revert this!",
+        icon: 'question',
+        showCancelButton: true,
+        confirmButtonColor: '#ec4899',
+        cancelButtonColor: '#6b7280',
+        confirmButtonText: 'Yes, do it!',
+        cancelButtonText: 'Cancel',
+        background: '#fff0f6',
+        customClass: { popup: 'swal2-popup-rounded' }
+      }).then((result) => {
+        if (result.isConfirmed) {
+          Swal.fire({
+            icon: 'success',
+            title: 'Done!',
+            text: 'Your action has been confirmed.',
+            confirmButtonColor: '#22c55e',
+            background: '#ecfdf5',
+            customClass: { popup: 'swal2-popup-rounded' }
+          });
+        }
+      });
+    });
+  </script>
+
+  <style>
+    .swal2-popup-rounded {
+      border-radius: 20px !important;
+      font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif !important;
+    }
+  </style>
+
+</body>
+</html>
